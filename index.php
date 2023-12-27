@@ -21,7 +21,7 @@ $semitonesToTranspone = (int) $argv[1];
 
 try {
     $transposited = (new \App\TranspositionService())->transpose($arrayToTransposite, $semitonesToTranspone);
-} catch (\Exception $e) {
+} catch (\App\Exceptions\TranspositionOutOfRangeException $e) {
     exit($e->getMessage() . PHP_EOL);
 }
 
